@@ -1,31 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         function computerPlay() {
-            const items = ['rock', 'paper','scissors'];
+            const items = ['rock', 'paper', 'scissors'];
             let randomSelectionElement = items[Math.floor(Math.random() * items.length)];
-            console.log(randomSelectionElement);
-    }
-
+            //console.log(randomSelectionElement);
+        };
         computerPlay();
-             //for (let i = 0; i < items.length; i++) {
-                 //const randomSelection = items.splice(Math.floor(Math.random() * items.length), 1);
-            //}    
 
-    function singleRoundPlay(playerSelection, computerSelection) {
-        let input = input.toUpperCase();
-        
+        function usersChoice(input) {
+            input = prompt('input your choice!');
+            input = input.toLowerCase();
+            if (input === 'rock' || input === 'paper' || input === 'scissors') {
 
-           
-        return  "You Lose! Paper beats Rock"
+                return input;
+            } else {
+                return 'Not A valid input';
+            }
+            console.log(usersChoice(input));
 
+        };
+
+        function singleRoundPlay(playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                return 'There is a tie, play again';
+            } else if (playerSelection === 'rock') {
+                if (computerSelection === 'paper') {
+                    return 'You Lose! Paper beats Rock';
+                } else {
+                    return 'You win, rock crushes scissors!';
+                }
+            } else if (playerSelection === 'scissors') {
+                if (computerSelection === 'rock') {
+                    return 'You Lose! rock crushes scissors!';
+                } else {
+                    return 'You win! scissors cuts paper';
+                }
+            } else if (playerSelection === 'paper') {
+                if (computerSelection === 'scissors') {
+                    return 'You Lose! scissors cuts paper';
+                } else {
+                    'You win! Paper beats Rock';
+                }
+            } else if (userChoice === 'bomb') {
+                return 'You win!';
+            }
+        };
+
+
+        function gameInaction() {
+
+            const playerSelection = usersChoice();
+            const computerSelection = computerPlay();
+            console.log(singleRoundPlay(playerSelection, computerSelection))
         }
+
+        gameInaction();
+
     </script>
 </body>
-</html
+
+</html>
